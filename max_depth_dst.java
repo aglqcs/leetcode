@@ -1,4 +1,5 @@
-public class Solution {
+package leetcode;
+public class max_depth_dst {
     public int maxDepth(TreeNode root) {
         if(root == null) return 0;
         return rec(root,0);
