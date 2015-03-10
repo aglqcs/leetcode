@@ -31,6 +31,24 @@ public class reverseKlist {
 		return newhead;
 		
     }
+	public static ListNode reverse(ListNode head){
+		if(head == null || head.next == null){
+			return head;
+		}
+		ListNode p,q;
+		p = head;
+		q = head.next;
+		while(q != null){
+			ListNode n;
+			n = q.next;
+			q.next = p;
+			p = q;
+			q = n;
+		}
+		head.next = null;
+		head = p;
+		return head;
+	}
 	public static void main(String []args){
 		ListNode a = new ListNode(1);
 		ListNode	b = new ListNode(2);
@@ -48,8 +66,8 @@ public class reverseKlist {
 		}
 		System.out.print("\n");
 		
-		a = reverseKGroup(a,3);
-		
+		//a = reverseKGroup(a,3);
+		a = reverse(a);
 		p = a;
 		while(p != null){
 			System.out.print(p.val + " ");
